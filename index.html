@@ -19,8 +19,25 @@
         margin-top: 20px;
         text-align: center;
     }
+    #button {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 400px;
+        margin-top: 400px;
+        background: red;
+        border-radius: 10px;
+        transition: width 2s, height 2s, transform 2s;
+    }
+    
+    #button:hover {
+              transform: rotate(360deg);
+    }
 </style>
 <body>
     <h1>Wellcome!</h1>
+    <div>
+        <a href="./dashboard.html"><button id="button">Sign Up</button></a>
+   </div>
 </body>
 </html>
