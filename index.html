@@ -21,23 +21,64 @@
     }
     #button {
         width: 100px;
-        height: 100px;
-        position: relative;
-        left: 400px;
-        margin-top: 400px;
+        height: 50px;
         background: red;
         border-radius: 10px;
         transition: width 2s, height 2s, transform 2s;
+        
     }
     
     #button:hover {
               transform: rotate(360deg);
     }
+    input[type=text] {
+                 width: 60%;
+                 padding: 12px 20px;
+                 margin: 8px 0;
+                 box-sizing: border-box;
+                 border: none;
+                 background-color: #3CBC8D;
+                 color: white;
+    }
+    .box{
+        width: 500px;
+        height: 400px;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.74);
+        margin-top: 100px;
+        margin-left: 400px;
+    }
+    input{
+        width: 60%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        background-color: #3CBC8D;
+        color: white;
+        border-radius: 10px;
+    }
+
 </style>
 <body>
     <h1>Wellcome!</h1>
     <div>
-        <a href="./dashboard.html"><button id="button">Sign Up</button></a>
-   </div>
+        <form class="box">
+            <br><br><br><label for="fname"> First Name : <input type="text" value="Enter Your First Name here!" required></label>
+            <br><label for="lname"> Last Name : <input type="text" value="Enter your Last Name here!" required></label>
+            <br><label for="date">Date Of Registration : </label>
+            <span id="date-format">(DD-MM-YYYY):</span>
+            <input type="date" id="date" aria-describedby="date-format" min="2021-03-01" max="2031-01-01" style="width: 40%;"/><br>
+            <label for="district"> District : </label>
+            <select id="district" name="District" style="border-radius: 10px; width: 50%;height: 10%; background-color: #3CBC8D; color: white;" required>
+              <option value="mathura">Mathura</option>
+              <option value="sultanpur">Sultanpur</option>
+              <option value="agra">Agra</option>
+            </select><br>
+            <label for="lname"> Mobile No. : <input type="tel" pattern="[0-9]{10}" required></label>
+            <br><br><a href="./dashboard.html"><input type="submit" id="button" value="Log In"></a>
+            <a href="./dashboard.html"><input type="submit" id="button" value="Sign Up"></a>
+        </form>
+    </div>
 </body>
 </html>
