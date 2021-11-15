@@ -30,7 +30,7 @@
     }
     
     #button:hover {
-              transform: rotate(360deg);
+              background: linear-gradient(red, blue);
     }
     input[type=text] {
                  width: 60%;
@@ -64,9 +64,12 @@
 </style>
 <body>
     <h1>Wellcome!</h1>
+    <p style="text-align: center; font-size: 30px;">LPG Booking Portal, Book Your Cylinder</p>
     <div>
         <form class="box">
-            <br><br><br><label for="fname"> First Name : <input type="text" placeholder="Enter Your First Name here!" required></label>
+            <h1 style="color: green;">Register Yourself</h1>
+            <span style="float: right;"><a href="./loginPage.html">If already registered!</a></span>
+            <br><label for="fname"> First Name : <input type="text" placeholder="Enter Your First Name here!" required></label>
             <br><label for="lname"> Last Name : <input type="text" placeholder="Enter your Last Name here!" required></label>
             <br><label for="date">Date Of Registration : </label>
             <span id="date-format">(DD-MM-YYYY):</span>
@@ -79,8 +82,8 @@
             </select><br>
             <label for="mb">Mobile No.</label>
             <input type="tel" name="" id="mb" pattern="[0-9]{10}" placeholder="1234567891" required>
-            <br><br><a href="./dashboard.html"><input type="submit" id="button" value="Log In"></a>
-            <a href="./dashboard.html"><input type="submit" id="button" value="Sign Up"></a>
+            <br><br>
+            <a href="./loginPage.html"><input type="submit" id="button" value="Sign Up"></a>
         </form>
     </div>
 </body>
