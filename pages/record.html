@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <title>Record_BookingsLPG</title>
+</head>
+<style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: rgb(240, 230, 230);
+        min-width: 100%;
+      }
+      .wrapper {
+        background: rgb(255, 252, 247);
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 10px;
+        border: 0.3px solid rgb(65, 65, 65);
+      }
+      .custom-table {
+        width: 100%;
+        padding: 10px;
+      }
+      .custom-table tr td {
+        padding: 5px;
+        text-align: center;
+        font-size: 20px;
+        border-right:2px solid white;
+        border-left:2px solid white;
+      }
+      .custom-table tr td i {
+        padding: 10px;
+        text-align: center;
+        font-size: 30px;
+      }
+      i {
+        margin-right: 10px;
+      }
+      .wrapper h2 {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 20px;
+        color: rgb(72, 218, 96);
+      }
+      table tr:first-child() {
+        font-size: 25px;
+      }
+      thead{
+          font-size: 220%;
+      }
+      .Name {
+        background: rgb(202, 150, 150);
+      }
+      .Booking_Date {
+        background: rgb(115, 161, 165);
+      }
+      .Delivery_Status {
+        background: rgb(252, 180, 180, 0.5);
+      }
+      .Cash_vide {
+        background: rgb(250, 241, 159, 0.5);
+      }
+      tbody tr:nth-child(odd){
+          background: rgb(247, 247, 247);
+      }
+      tfoot tr:nth-child(odd){
+          background: rgb(255, 252, 247);
+      }
+      tfoot tr{
+          line-height:70px;
+      }
+footer {
+    width: 100%;
+    background-color: #26272b;
+}
+
+.sec-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 10px;
+}
+
+.about {
+    width: 40%;
+}
+
+.sec-1 h2 {
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.about p {
+    text-align: justify;
+    color: grey;
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+.sec-1 ul {
+    list-style: none;
+}
+
+.sec-1 ul li {
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+a:hover {
+    color: orange;
+}
+
+span {
+    color: grey;
+}
+
+i {
+    color: grey;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.sec-2 {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+.sec-2 ul {
+    list-style: none;
+}
+
+.sec-2 ul li {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    padding: 20px;
+    background-color: #424242;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.sec-2 ul li i {
+    color: white;
+    font-size: 24px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.sec-2 ul li:nth-child(1):hover {
+    background-color: #3b5999;
+}
+
+.sec-2 ul li:nth-child(2):hover {
+    background-color: #55acee;
+}
+
+.sec-2 ul li:nth-child(3):hover {
+    background-color: #dd4b39;
+}
+
+.sec-2 ul li:nth-child(4):hover {
+    background-color: #0077b5;
+}
+
+.sec-2 ul li:nth-child(5):hover {
+    background-color: #ea4c89;
+}
+
+.sec-3 {
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    padding: 30px;
+}
+
+.sec-3 p {
+    color: grey;
+    position: relative;
+}
+
+.sec-3 p::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: yellow;
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    transition: all 0.3s;
+}
+
+.sec-3 p:hover::after {
+    width: 100%;
+}
+</style>
+<body>
+<div  class="wrapper">
+    <h2>
+        Your Bookings till Now!
+    </h2>
+        <table class="custom-table">
+            <colgroup class="Name"></colgroup>
+            <colgroup class="Booking_Date"></colgroup>
+            <colgroup class="Delivery_Status"></colgroup>
+            <colgroup class="Cash_vide"></colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        <i class="fa fa-building"></i>Name
+                    </th>
+                    <th>
+                        <i class="fa fa-superpowers"></i>Booking Date
+                    </th>
+                    <th>
+                        <i class="fa fa-telegram"></i>Delivery Status
+                    </th>
+                    <th>
+                        <i class="fa fa-tachometer"></i>Cash vide
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Shubham shukla</td>
+                    <td>10/08/2021</td>
+                    <td style="color: green;">Delivered</td>
+                    <td style="color: green;">Rs. 800/- cleared</td>
+                </tr>
+                <tr>
+                    <td>shubham shukla</td>
+                    <td>15/09/2021</td>
+                    <td style="color: green;">Delivered</td>
+                    <td style="color: green;">Rs. 820/- cleared </td>
+                </tr>
+                <tr>
+                    <td> Shubham shukla</td>
+                    <td> 11/10/2021</td>
+                    <td style="color: green;"> Delivered</td>
+                    <td style="color: green;"> Rs. 810/- cleared</td>
+                </tr>
+                <tr>
+                    <td>Shubham Shukla</td>
+                    <td>08/11/2021</td>
+                    <td style="color: red;">Pending</td>
+                    <td style="color: red;">not cleared</td>
+                </tr>
+                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+<footer>
+        <section class="sec-1">
+            <section class="about">
+                <h2>About</h2>
+                <p>
+                    To ensure a simple and secure environment for the consumer and the agencies we are making the ‘Online Gas Booking System’. Through this system, we are solving the customers’ problems in a lot of ways like booking their gas cylinder from home without traveling to the agency and stand in a queue to just book the gas.On the other hand, it also makes it easier for the agency to check the number as a person has booked in a specific amount of time and the person who is booking the gas is authenticated or not. It also prevents any error while registering the gas as if it’s done manually there is always a chance of omission and oversight. It also helps the agency to move from a manual system of registering the data to storing it online which digitized the agency and reduces their overall carbon footprint.
+                </p>
+            </section>
+            <section class="link2">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Records</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="./dashboard.html">DashBoard</a></li>
+                    <li><a href="/index.html">New Usew</a></li>
+                </ul>
+            </section>
+            <section class="link3">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li>
+                        <i class="fa fa-home"></i> <span>GLA University, Mathura, India</span>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope"></i>
+                        <span>shubham.shukla_cs19@gla.ac.in</span>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone-square"></i>
+                        <span>Mobile: 9997111294</span>
+                    </li>
+                    <li>
+                        <i class="fa fa-facebook-official"></i>
+                        <a href="https://shubhamshukla12.github.io/Mini-Project_LPG-Portal/">Shubham Shukla</a>
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section class="sec-2">
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+            </ul>
+        </section>
+        <section class="sec-3">
+            <p>
+                Copyright © 2021 All Rights Reserved by
+                <a href="https://shubhamshukla12.github.io/Mini-Project_LPG-Portal/">Team</a>
+            </p>
+        </section>
+</footer>
+</body>
+</html>
