@@ -1,77 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashBoard_LPG Booking Portal</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard_LPG-Booking_Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-padding-top: 70px;
+            scroll-behavior: smooth;
+        }
+
+        #header {
+            margin: auto 10px;
+            background-color: #595260;
+            height: 60px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+
+        .menu {
+            list-style: none;
+            float: right;
+            padding: 0 20px;
+        }
+
+        .menu li {
+            display: inline-block;
+            line-height: 60px;
+        }
+
+        .menu li a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 0px 20px;
+            text-transform: uppercase;
+        }
+
+        .menu li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .show-btn,
+        .hide-btn,
+        #check {
+            font-size: 30px;
+            line-height: 60px;
+            color: white;
+            display: none;
+            float: right;
+            padding-right: 20px;
+        }
+
+        #banner {
+            margin: 10px;
+            height: 650px;
+            background-image: url(/images/office.jpeg);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        #banner h1 {
+            color: white;
+            font-size: 40px;
+            line-height: 650px;
+            text-align: center;
+        }
+
+         div .team_img {
+            display: flex;
+        }
+        .team {
+            margin-right: 120px;
+        }
+
+        #team {
+            margin-left: 120px;
+        }
+
+        #about-us {
+            margin: 20px 10px;
+        }
+
+        #about-us h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #container {
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        #about-project {
+            width: 50%;
+            background-color: #343a40;
+            padding: 0 10px 0 10px;
+            height: 410px;
+            color: white;
+            margin-right: 10px;
+        }
+
+        #about-project h1 {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .projects {
+            width: 50%;
+            height: 410px;
+        }
+
+        .project {
+            height: 130px;
+            background-color: #f55c47;
+        }
+
+        #project1 {
+            background-image: url(/images/Sign-Up.png);
+            background-color: #E8B9AB;
+            line-height: 130px;
+            background-size: 100% 130px;
+            margin-bottom: 10px;
+        }
+
+        #project2 {
+            background-image: url(/images/Records\ \(1\).png);
+            background-color: #E09891;
+            line-height: 130px;
+            background-size: 100% 130px;
+            margin-bottom: 10px;
+        }
+
+        #project3 {
+            background-image: url(/images/Reset\ Password.png);
+            background-color: #CB769E;
+            line-height: 130px;
+            background-size: 100% 130px;
+        }
+        .projects a:hover{
+          color: yellow;
+        }
+        .project h1 {
+            text-align: center;
+            color: black;
+        }
+
+        #technologies-used {
+            margin: 20px 10px;
+        }
+
+        #technologies-used h1 {
+            text-align: center;
+        }
+
+        .box-container {
+            width: 100%;
+            display: inline-flex;
+        }
+
+        .box {
+            height: 410px;
+            width: 20%;
+            border: 1px solid black;
+            background-color: white;
+            padding: 15px;
+            margin: 20px 15px;
+            border-radius: 12px;
+            display: grid;
+            overflow: hidden;
+        }
+
+        .image-box {
+            display: flex;
+            justify-content: center;
+            box-shadow: 2px 2px 10px rgb(53, 51, 51);
+            margin-bottom: 10px;
+            border-radius: 12px;
+            height: 142px;
+        }
+
+        .image-box img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .box h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            overflow: hidden;
+            text-align: justify;
+        }
+
+        .button {
+            border-radius: 12px;
+            background-color: aqua;
+            border: none;
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            width: 90%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            height: 30px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            color: black;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover {
+            background-color: aquamarine;
+            box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+            border-radius: 20px;
+            rotate: 360;
+
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+            color: black;
+
+        }
+
+        .button a {
+            text-decoration: none;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .button1 {
+            border-radius: 12px;
+            background-color: rgb(233, 159, 75);
+            border:honeydew;
+            text-align: center;
+            font-size: 18px;
+            padding: 5px;
+            width: 60%;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            height: 50px;
+        }
+
+        .button1 span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            color: black;
+        }
+
+        .button1 span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button1:hover {
+            background-color: rgb(91, 211, 171);
+            box-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+            border-radius: 20px;
+            rotate: 360;
+
+        }
+
+        .button1:hover span {
+            padding-right: 15px;
+            color: black;
+
+        }
+
+        .button1 a {
+            text-decoration: none;
+        }
+
+        .button1:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        #contact {
+            margin: 20px 10px;
+            text-align: center;
+        }
+
+        #footer {
+            background-color: #5eaaa8;
+            margin: 20px 10px 0;
+            height: 60px;
+            text-align: center;
+            padding-top: 25px;
+        }
+
+        #footer p {
+            color: white;
+        }
+
+        /* Breakpoint - 1 */
+        @media screen and (max-width: 1200px) {
+            #avatars {
+                display: flex;
+                width: 100%;
+                justify-content: space-evenly;
+            }
+
+            .avatar {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        /* Breakpoint - 2 */
+        @media screen and (max-width: 800px) {
+            #avatars {
+                display: block;
+            }
+
+            .avatar {
+                width: 250px;
+                height: 250px;
+                margin: 20px;
+            }
+
+            .box-container {
+                display: block;
+                width: 100%;
+                justify-content: space-evenly;
+                text-align: center;
+            }
+
+            .box {
+                width: 200px;
+                height: 410px;
+                margin: 10px 30px;
+                display: inline-block;
+            }
+        }
+
+        /* Breakpoint - 3 */
+        @media screen and (max-width: 650px) {
+            .container {
+                min-width: 350px;
+            }
+
+            .show-btn {
+                display: block;
+            }
+
+            .menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: #191919;
+                text-align: center;
+                padding: 80px 0px;
+                line-height: normal;
+                transition: 0.7s;
+            }
+
+            .menu li {
+                display: block;
+            }
+
+            .menu li a {
+                display: block;
+            }
+
+            .menu li a:hover {
+                color: black;
+                background-color: #E6E8E6;
+            }
+
+            #check:checked~.menu {
+                right: 0;
+            }
+
+            .hide-btn {
+                display: block;
+                position: absolute;
+                right: 10px;
+                top: 8px;
+            }
+
+            #avatars {
+                display: block;
+                text-align: center;
+            }
+
+            .avatar {
+                width: 270px;
+                height: 270px;
+                margin: 30px;
+            }
+
+            #container {
+                display: block;
+            }
+
+            #about-project {
+                width: 100%;
+                overflow: hidden;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+
+            .projects {
+                width: 100%;
+            }
+            .box-container {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .box {
+                width: 250px;
+                height: 410px;
+                margin: 10px 30px;
+                display: inline-block;
+            }
+        }
+    </style>
 </head>
-<style>
-   *{
-        box-sizing: border-box;
-        margin: 0px; padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    body{
-        background-color:burlywood;
-    }
-    body h1{
-        margin-top: 20px;
-        text-align: center;
-    }
-  h2{
-        color: green;
-        text-align: center;
-        margin: 30px 0;
-    }
-    p{
-        width: 80%;
-        margin: 0 10%;
-        margin-top: 25px;
-        margin-bottom: 30px;
-        text-align: center;
-        color:crimson;
-        text-decoration: underline;
-    }
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-    }
-    
-    li {
-      float: right;
-    }
-    
-    li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-    
-    li a:hover {
-      background-color: rgb(236, 18, 36);
-      text-shadow: 10px;
-    }
-</style>
-<body style="background-color: rgb(82, 105, 207);">
-  <header>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="./record.html">Records</a></li>
-          <li><a href="#">Book Cylinder</a></li>
-          <li><a href="#about">About</a></li>
-    </ul>
-  </header>
-  <div id="home">
-    <h1>Wellcome!</h1>
-    <h2>LPG Booking Portal wellcomes You!</h2>
-    <p>To ensure a simple and secure environment for the consumer and the agencies we are making the ‘Online Gas Booking System’. Through this system, we are solving the customers’ problems in a lot of ways like booking their gas cylinder from home without traveling to the agency and stand in a queue to just book the gas.On the other hand, it also makes it easier for the agency to check the number as a person has booked in a specific amount of time and the person who is booking the gas is authenticated or not. It also prevents any error while registering the gas as if it’s done manually there is always a chance of omission and oversight. It also helps the agency to move from a manual system of registering the data to storing it online which digitized the agency and reduces their overall carbon footprint.
-    </p>
-  </div>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <input type="checkbox" id="check" />
+            <label for="check" class="show-btn">
+                <i class="fa fa-bars"></i>
+            </label>
+            <ul class="menu">
+                <li><a href="#banner"><span>Home</span></a></li>
+                <li><a href="#about-us"><span>About_Us</span></a></li>
+                <li><a href="#team"><span>Team</span></a></li>
+                <li><a href="#technologies-used"><span>Technology</span></a></li>
+                <li><a href="#contact"><span>Contact</span></a></li>
+                <li><a href="./record.html"><span>Records</span></a></li>
+                <label for="check" class="hide-btn">
+                    <i class="fa fa-times"></i>
+                </label>
+            </ul>
+        </div>
+        <div id="banner">
+            <h1 style="color:black;">LPG Booking Portal</h1>
+        </div>
+        <div id="team">
+            <p style="text-align: center; font-size: 40px; margin-bottom: 40px;"><br><br>Team Members</p>
+            <div class="team_img">
+                <div class="team" id="team1"><img src="/images/team.jpeg" width="100%" style="border-radius: 30%;">Shubham Shukla</div>
+                <div class="team" id="team1"><img src="/images/PA_Mishra.jpeg" width="100%" style="border-radius: 30%;">Prasoon Anand Mishra</div>
+                <div class="team" id="team1"><img src="/images/team.jpeg" width="100%" style="border-radius: 30%;">Shubh Rastogi</div>
+                <div class="team" id="team1"><img src="/images/team.jpeg" width="100%" style="border-radius: 30%;">Pranjal Singh</div>
+            </div>
+        </div>
+        <div id="about-us">
+            <h1>About Us</h1>
+            <div id="container">
+                <div id="about-project">
+                    <h1>About Project</h1>
+                    <p>
+                      To ensure a simple and secure environment for the consumer and the agencies we are making the ‘Online Gas Booking System’. Through this system, we are solving the customers’ problems in a lot of ways like booking their gas cylinder from home without traveling to the agency and stand in a queue to just book the gas.On the other hand, it also makes it easier for the agency to check the number as a person has booked in a specific amount of time and the person who is booking the gas is authenticated or not. It also prevents any error while registering the gas as if it’s done manually there is always a chance of omission and oversight. It also helps the agency to move from a manual system of registering the data to storing it online which digitized the agency and reduces their overall carbon footprint. 
+                    </p>
+                </div>
+                <div class="projects">
+                    <div class="project" id="project1">
+                        <h1><a href="/index.html" style="color: black;">Sign-Up</a></h1>
+                    </div>
+                    <div class="project" id="project2">
+                        <h1><a href="./record.html" style="color: black;">Records</a></h1>
+                    </div>
+                    <div class="project" id="project3">
+                        <h1><a href="./PassReset.html" style="color: black;">Reset Password</a></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="technologies-used">
+            <h1>Technologies Used</h1>
+            <div class="box-container">
+                <div class="box">
+                    <div class="image-box">
+                        <img src="/images/html pic.png" alt="HTML" />
+                    </div>
+                    <div class="heading">
+                        <h3>Introduction to HTML</h3>
+                    </div>
+                    <p>
+                        HTML stands for Hyper Text Markup Language. HTML is the
+                        standard markup language for creating Web pages. HTML
+                        describes the structure of a Web page. HTML consists of
+                        a series of elements.
+                    </p>
+                    <div class="button">
+                        <a href="#" target="_blank"><span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image-box">
+                        <img src="/images/css pic.png" alt="CSS" />
+                    </div>
+                    <h3>Introduction to CSS</h3>
+                    <p>
+                        CSS stands for Cascading Style Sheets. CSS describes how
+                        HTML elements are to be displayed on screen, paper, or
+                        in other media. CSS saves a lot of work. It can control
+                        the layout of multiple web pages all at once.
+                    </p>
+                    <div class="button">
+                        <a href="#" target="_blank"><span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image-box">
+                        <img src="/images/java script pic.png" alt="jQuery" />
+                    </div>
+                    <h3>Introduction to jQuery</h3>
+                    <p>
+                        jQuery is a fast, small, cross-platform and feature-rich
+                        JavaScript library. It is designed to simplify the
+                        client-side scripting of HTML. It makes things like HTML
+                        document traversal and manipulation, animation, event
+                        handling, and AJAX very simple.
+                    </p>
+                    <div class="button">
+                        <a href="#" target="_blank"><span>Read More</span></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image-box">
+                        <img src="/images/bootstrap pic.png" alt="Bootstrap" />
+                    </div>
+                    <h3>Introduction to Bootstrap</h3>
+                    <p>
+                        Bootstrap is a free and open-source tool collection for
+                        creating responsive websites and web applications. It is
+                        the most popular HTML, CSS, and JavaScript framework for
+                        developing responsive, mobile-first websites.
+                    </p>
+                    <div class="button">
+                        <a href="#" target="_blank"><span>Read More</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <h1>Contact</h1>
+        </div>
+        <div id="footer">
+            <p>
+                Website template for LPG Booking Portal &#169;
+                <a href="https://github.com/shubhamshukla12/Mini-Project_LPG-Portal" target="_blank">
+                    Team
+                </a>
+            </p>
+            <p><a href="#">Back to top</a></p>
+        </div>
 </body>
+
 </html>
