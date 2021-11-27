@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Place Order</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+   }
+   
+    .header {
+    width: 100%;
+    height: 60px;
+    background-color: #11324d;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .header h2 {
+    color: white;
+    line-height: 60px;
+    text-align: center;
+    }
+   
+    .side-bar {
+    width: 25%;
+    height: 100%;
+    background-color: #112031;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    margin-top: 60px;
+    transition: 0.5s;
+    }
+   
+    .side-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+   
+    .side-bar ul li {
+    color: white;
+    margin: 10px;
+    }
+   
+    .side-bar ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    border: 2px solid red;
+    border-radius: 12px;
+    transition: .6s;
+    }
+   
+    .side-bar ul li a:hover {
+    color: black;
+    background-color: white;
+    margin-inline: 20px;
+    }
+   
+    .show-btn,
+    .hide-btn {
+    position: fixed;
+    color: white;
+    font-size: 25px;
+    top: 15px;
+    left: 30px;
+    }
+   
+    .hide-btn {
+    visibility: hidden;
+    }
+   
+    #check {
+    visibility: hidden;
+    }
+   
+    #check:checked~.side-bar {
+    left: 0;
+    }
+   
+    #check:checked~.show-btn {
+    visibility: hidden;
+    }
+   
+    #check:checked~.hide-btn {
+    visibility: visible;
+    }
+   
+    #check:checked~.main-content {
+    width: 75%;
+    }
+   
+    .main-content {
+    float: right;
+    width: 100%;
+    transition: 0.5s;
+    }
+   
+    .main-content img {
+    width: 100%;
+    max-width: 650px;
+    display: block;
+    margin: 10px auto;
+    }
+   
+    .main-content p {
+    text-align: justify;
+    margin: 20px;
+    }
+    .box{
+        width: 500px;
+        height: 100%;
+        border-radius: 15px;
+        background-color: rgba(72, 27, 179, 0.74);
+        margin-top: 100px;
+        margin-left: 500px;
+        padding: 20px; ;
+    }
+    input[type=text] {
+                 width: 60%;
+                 padding: 12px 20px;
+                 margin: 8px 0;
+                 box-sizing: border-box;
+                 border: none;
+                 background-color: #3CBC8D;
+                 color: white;
+    }
+    input{
+        width: 60%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: none;
+        background-color: #3CBC8D;
+        color: white;
+        border-radius: 10px;
+    }
+    button {
+        width: 200px;
+        height: 50px;
+        background: aquamarine;
+        color: honeydew;
+        border-radius: 10px;
+             
+    }
+    
+    button:hover {
+              background: linear-gradient(red, blue);
+    }
+    @media screen and (max-width: 730px) {
+    .side-bar {
+    width: 100%;
+    }
+   
+    .header h2 {
+    display: none;
+    }
+    }
+</style>
+</head>
+<body>
+    <div>
+    <div class="header">
+    <h2>Book Your Cylinder</h2>
+    </div>
+    <input type="checkbox" id="check" />
+    <label for="check" class="show-btn">
+    <i class="fa fa-bars"></i>
+    </label>
+    <label for="check" class="hide-btn">
+    <i class="fa fa-times"></i>
+    </label>
+    <div class="side-bar">
+    <ul>
+    <li>
+    <a href="/pages/dashboard.html"><i class="fa fa-home"></i>&nbsp;<span>Home</span></a>
+    </li>
+    <li>
+    <a href="/pages/record.html"><i class="fa fa-id-card"></i>&nbsp;<span>Records</span></a>
+    </li>
+    <li>
+    <a href="https://github.com/shubhamshukla12/Mini-Project_LPG-Portal"><i class="fa fa-user"></i>&nbsp;<span>Contact</span></a>
+    </li>
+    </ul>
+    </div>
+    <div class="box">
+        <form >
+            <br><label for="fname"> First Name : <input type="text" placeholder="Your First Name here!" required></label>
+            <br><label for="lname"> Last Name : <input type="text" placeholder="your Last Name here!" required></label>
+            <br><label for="date">Booking Date</label>
+            <span id="date-format">(mm/dd/yyyy):</span>
+            <input type="date" id="date" aria-describedby="date-format" min="2021-03-01" max="2031-01-01" style="width: 40%;"/><br>
+            <label for="district"> Delivery Address : </label>
+            <input type="text" placeholder="Enter your Address here!" required><br>
+            <label for="mb">Mobile No.</label>
+            <input type="tel" name="" id="mb" pattern="[0-9]{10}" placeholder="1234567891" required>
+            <br><br>
+            <button type="submit" id="submit" onclick="myFun()" style="color: black;">Order</button>
+        </form>
+    </div>
+    <script>
+        function myFun() {
+            confirm("Thanks! Your Cylinder will be Delivered, Soon.");
+        }
+    </script>
+    </div>
+   </body>
+   
+   </html>
